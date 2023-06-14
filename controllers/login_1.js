@@ -2,6 +2,7 @@ const express = require('express')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const https = require('https')
+const Fetch = require('node-fetch')
 const User = require('../models/user.model')
 
 const login = (req, res) => {
@@ -33,7 +34,7 @@ const login = (req, res) => {
         //    console.log(res)
         //});
         //Req.end()
-        fetch('https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=100&offset=0', {
+        Fetch('https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=100&offset=0', {
             method: 'GET',                               // Replace with the HTTP method you want to use
             headers: {
               'Authorization': `Bearer ${AccessToken}`,    // Include the bearer token in the Authorization header
