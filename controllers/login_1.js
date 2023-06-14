@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const https = require('https')
 const User = require('../models/user.model')
+const fetch = require('node-fetch')
 
 const login = (req, res) => {
     console.log("Hello")
@@ -46,10 +47,11 @@ const login = (req, res) => {
               console.log('________________________________________________________________________')
               const jack = data.items.forEach(item=> {console.log(item.name) ;return item.name})
               console.log(data.items.length);
-              res.json({items : data.items})
+              res.status(200).json({items : data.items})
             })
             .catch(error => {
               console.error(error);
+              res.status(400).json({msg : error})
             });
     //    User.findOne({Username: username}).then((id)=>
     //    {
