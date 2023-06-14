@@ -45,8 +45,8 @@ const login = (req, res) => {
               // Process the received data
               console.log('________________________________________________________________________')
               const jack = data.items.forEach(item=> {console.log(item.name) ;return item.name})
-
               console.log(data.items.length);
+              res.json({items : data.items})
             })
             .catch(error => {
               console.error(error);
