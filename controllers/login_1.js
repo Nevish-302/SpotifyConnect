@@ -3,12 +3,11 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const https = require('https')
 const User = require('../models/user.model')
-const fetch = require('node-fetch')
 
 const login = (req, res) => {
     console.log("Hello")
     //const {AccessToken} = req.body
-        const AccessToken = 'BQAjxakR8QdDXWRKrlZreTaBsogvi18wcsq-MWM7w8lY7C3tATp0mslbYUkqx8RXVRVnKP269W8qFFajpMQhLqmlItwwgXHskj9_7MnT4usgc1E8dB2aaJmkxiJvHBXlEP-sXBvgtPhcjwAS7jfoe4fNsV2PN-rtLmQ9We8zGEM_r6z4AOGUe5dXEi0mHti7kznvFSDH_rF99ZUgsiDtC36ZQ4neqjf1'
+        const AccessToken = 'BQAFDn6A-PpaOGaNPQZ5PnojOPM55w5U2klNqgW-y1LnE6k8zk1DgWnjt2Ms6bnr8u_h0pwuOteS1svuC0E24E9OiEt1tc37BOo8qi_w-ZAeCLojsf32EqAcjD0H-RfyCo22x0kJL_Ho91oLMn-QABsTqIvFMOyGUuqRTdBHP1B2umzYSJPMFDzZr834fJp93c3HP5CXHWkpO_0w7Z-1_2QHO7-fbD-m'
         const options = {
             hostname: 'api.spotify.com',  // Replace with the API hostname
             path: '/v1/m',            // Replace with the API endpoint path
@@ -45,8 +44,8 @@ const login = (req, res) => {
             .then(data => {
               // Process the received data
               console.log('________________________________________________________________________')
+              console.log(data);
               const jack = data.items.forEach(item=> {console.log(item.name) ;return item.name})
-              console.log(data.items.length);
               res.status(200).json({items : data.items})
             })
             .catch(error => {
