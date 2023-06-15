@@ -11,8 +11,10 @@ const get_items = async (AccessToken, time_range, userItem) => {
     'Authorization': `Bearer ${AccessToken}`,    // Include the bearer token in the Authorization header
     'Scope' : 'user-top-read'
   }
-}).then(response => response.json()).then(artists=> {const Artists = artists.items.map(item => {
-  //console.log(item)
+}).then(response => response.json()).then(artists=> {
+  console.log(artists)
+  const Artists = artists.items.map(item => {
+  console.log(item)
   if(userItem == 'artists'){
 return {name : item.name, url : item.images[0].url}}
 else{
