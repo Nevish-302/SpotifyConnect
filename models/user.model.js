@@ -15,26 +15,60 @@ const userinfo = new Schema ({
         trim: true,
     },
     TopArtists : {
-        type: Array,
-        members : {
-            artist : {type : String}
-        }
+            shortTerm : {
+                type : Array,
+                members : {
+                    name : {type : String},
+                    url : {type : String}
+                }
+            }, 
+            mediumTerm : {
+                type : Array,
+                members : {
+                    name : {type : String},
+                    url : {type : String}
+                }
+            },
+            longTerm : {
+                type : Array,
+                members : {
+                    name : {type : String},
+                    url : {type : String}
+                }
+            }
+        
     },
-    TopAlbums : {
+    TopTracks : {
+        shortTerm : {
         type : Array,
         members : {
-            album : {type : String}
+            name : {type : String},
+            url : {type : String}
         }
+    }, 
+    mediumTerm : {
+        type : Array,
+        members : {
+            name : {type : String},
+            url : {type : String}
+        }
+    },
+    longTerm : {
+        type : Array,
+        members : {
+            name : {type : String},
+            url : {type : String}
+        }
+    }
     },
     Name: {
         type : String,
         required : true
     },
-    Age : {
-        type : Number
-    },
-    Gender : {
-        type: String
+    Genres : {
+        type: Array,
+        members : {type : String
+        }
     },
     Phone : {
         type : String
@@ -46,8 +80,10 @@ const userinfo = new Schema ({
         }
     },
     ProfilePic : {
-        data: Buffer,
-        contentType: String
+        type : String,
+    },
+    SpotifyId: {
+        type : String
     },
     Posts : {
         type: Array,
