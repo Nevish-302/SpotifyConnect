@@ -66,9 +66,7 @@ const userinfo = new Schema ({
         required : true
     },
     Genres : {
-        type: Array,
-        members : {type : String
-        }
+        type: Object,
     },
     Phone : {
         type : String
