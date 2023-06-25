@@ -1,4 +1,4 @@
-const {addBeatMate, removeBeatmate, getBeatMates} = require('../controllers/Beatmates')
+const {addBeatMate, removeBeatmate, getBeatMates} = require('../controllers/beatmates')
 const express = require('express')
 const router = express.Router()
 
