@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { send } = require('vite');
 
 const {Schema}  = mongoose;
 
