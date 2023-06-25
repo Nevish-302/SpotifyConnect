@@ -6,11 +6,12 @@ const getFeed = async (req, res) => {
     const {user_id} = await jwt.verify(req.headers.authorization.split(" ")[1], process.env.TOKEN_KEY);
     
     User.findOne({_id : user_id}).then((user) => {
+        //add null checks in the function
         const feed = user.Posts
         for(friend in user.BeatMates)
         {
-            User.findOne({_id: friend}).then(friend => {
-                feed += friend.Posts
+            User.findOne({_id: friend}).then(fr => {
+                feed += fr.Posts
             })
         }
         res.status(200).json({response : feed})
@@ -19,7 +20,24 @@ const getFeed = async (req, res) => {
 
 }
 
+const getStory = async (req, res) => {
+    const {user_id} = await jwt.verify(req.headers.authorization.split(" ")[1], process.env.TOKEN_KEY);
+    
+    User.findOne({_id : user_id}).then((user) => {
+        const stories = [{id : user_id, story : user.Story}]
+        for(friend in user.BeatMates)
+        {
+            User.findOne({_id: friend}).then(fr => {
+                stories += [{id : friend, story : fr.Story}]
+            })
+        }
+        res.status(200).json({response : stories})
+        
+    })
+
+}
+
 
 module.exports ={
-    getFeed
+    getFeed, getStory
 }

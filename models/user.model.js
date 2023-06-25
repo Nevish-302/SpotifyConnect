@@ -88,6 +88,9 @@ const userinfo = new Schema ({
         members : {
             _id : {type : String}
         }
+    },
+    Story : {
+        type : String
     }
 
 });

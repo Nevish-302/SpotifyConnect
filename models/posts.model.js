@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const {Schema}  = mongoose;
 
 const PostSchema= new Schema({
@@ -8,8 +9,10 @@ const PostSchema= new Schema({
         required : true
     },
     Media: {
-        data: Buffer,
-        contentType : String
+        type : String,
+    },
+    UserId : {
+        type : String
     },
     Keywords : {
         type : Array,
