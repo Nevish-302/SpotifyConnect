@@ -27,4 +27,8 @@ const addMessage = async (req, res) => {
         res.status(400).json({msg: error})
     }
 }
+
+module.exports = {
+    getChats, addMessage
+}
     

@@ -45,6 +45,20 @@ const removeBeatmate = async (req, res) => {
 }
 
 
+const getBeatMates = async (req, res) => {
+    const name = req.body.name;
+    try{
+    User.find({Username: name}).then((byusernames) => {
+        User.find({Name: name}).then((bynames) =>{
+            res.status(200).json({byusernames : byusernames, bynames : bynames})
+        })        
+    })}
+    catch(error) {
+        res.status(400).json({msg: error})
+    }
+}
+
+
 module.exports ={
-addBeatMate, removeBeatmate
+addBeatMate, removeBeatmate, getBeatMates
 }

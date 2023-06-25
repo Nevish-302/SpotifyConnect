@@ -24,3 +24,7 @@ const getCompatiability = async (req, res) => {
         res.status(400).json({msg: error})
     }
 }
+
+module.exports = {
+    getCompatiability
+}

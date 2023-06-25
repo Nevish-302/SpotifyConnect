@@ -28,9 +28,15 @@ connection.once('open', ()=>
 
 //The routes
 const userauth = require('./routes/userauth')
+const compatiability = require('./routes/compatiability')
+const Beatmates = require('./routes/beatMates')
+const chats = require('./routes/chats')
 
 //The routing of requests
 app.use('/auth', userauth);
+app.use('/compatiability', compatiability);
+app.use('/beatmates', Beatmates);
+app.use('/chats', chats);
 
 app.listen(5000, () => {
   console.log(`The server is listening on the port 5000`);
