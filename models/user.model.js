@@ -89,10 +89,6 @@ const userinfo = new Schema ({
             _id : {type : String}
         }
     },
-    Story : {
-        type : String
-    }
-
 });
 
 const User = mongoose.model('User', userinfo);
