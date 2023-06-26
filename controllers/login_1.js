@@ -126,12 +126,12 @@ const currentUser = await get_user(AccessToken)
           {
             expiresIn: "20h",
           }
-        );
+          );
+          res.status(200).json({user: item, token: token});            
       })
       .catch(err => {
         console.log("unable to register", err);
       });
-      res.status(200).json(user);            
       
     }
 
