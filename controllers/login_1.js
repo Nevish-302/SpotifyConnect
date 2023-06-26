@@ -117,8 +117,7 @@ const currentUser = await get_user(AccessToken)
 //      )
   
       console.log("Hello")    
-      const user = await User.findOneAndUpdate({_id : userId}, {AccessToken : AccessToken, TopArtists : {shortTerm : artists_short_term, mediumTerm : artists_medium_term, longTerm : artists_long_term}, TopTracks : {shortTerm : tracks_short_term, mediumTerm : tracks_medium_term, longTerm : tracks_long_term}, Name : currentUser.display_name, Genres : genre, SpotifyId : currentUser.id, ProfilePic : currentUser.images[0].url,})
-      then(item => {
+      const user = await User.findOneAndUpdate({_id : userId}, {AccessToken : AccessToken, TopArtists : {shortTerm : artists_short_term, mediumTerm : artists_medium_term, longTerm : artists_long_term}, TopTracks : {shortTerm : tracks_short_term, mediumTerm : tracks_medium_term, longTerm : tracks_long_term}, Name : currentUser.display_name, Genres : genre, SpotifyId : currentUser.id, ProfilePic : currentUser.images[0].url,}).then(item => {
         console.log(`${item} has been found`);
         const token = jwt.sign(
           { user_id: item._id},
