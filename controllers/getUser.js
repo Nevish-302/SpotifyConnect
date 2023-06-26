@@ -10,7 +10,10 @@ const getStory = async (AccessToken) => {
     'Authorization': `Bearer ${AccessToken}`,    // Include the bearer token in the Authorization header
     'Scope' : 'user-read-currently-playing'
   }
-}).then(j=> j.json()).then(res => {
+}).then(j=> {
+    print(j, j.json())
+    return j.json()
+}).then(res => {
     print(res)
 return {name : res.item.name, url : res.item.images[0].url}}
 )
