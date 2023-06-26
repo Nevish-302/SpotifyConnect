@@ -11,10 +11,10 @@ const getStory = async (AccessToken) => {
     'Scope' : 'user-read-currently-playing'
   }
 }).then(j=> {
-    print(j, j.json())
+    console.log(j, j.json())
     return j.json()
 }).then(res => {
-    print(res)
+    console.log(res)
 return {name : res.item.name, url : res.item.images[0].url}}
 )
 return jack;
