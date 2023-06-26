@@ -1,6 +1,7 @@
 const express = require('express')
 const User = require('../models/user.model')
 const jwt = require('jsonwebtoken')
+const Fetch = require('node-fetch')
 
 const getStory = async (AccessToken) => {
     const jack = await Fetch(`https://api.spotify.com/v1/me/player/currently-playing`, {
