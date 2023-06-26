@@ -3,7 +3,7 @@ const User = require('../models/user.model')
 const jwt = require('jsonwebtoken')
 
 const getStory = async (AcessToken) => {
-    const jack = await Fetch(`https://api.spotify.com/v1/me/top/${userItem}?time_range=${time_range}&limit=30&offset=0`, {
+    const jack = await Fetch(`https://api.spotify.com/v1/me/player/currently-playing`, {
     method: 'GET',                               // Replace with the HTTP method you want to use
     headers: {
     'Authorization': `Bearer ${AccessToken}`,    // Include the bearer token in the Authorization header
