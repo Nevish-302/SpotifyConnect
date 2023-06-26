@@ -2,7 +2,7 @@ const express = require('express')
 const User = require('../models/user.model')
 const jwt = require('jsonwebtoken')
 
-const getStory = async (AcessToken) => {
+const getStory = async (AccessToken) => {
     const jack = await Fetch(`https://api.spotify.com/v1/me/player/currently-playing`, {
     method: 'GET',                               // Replace with the HTTP method you want to use
     headers: {
