@@ -15,17 +15,17 @@ const verifyToken = async (req, res, next) => {
  if (!token) {
     return res.status(403).send("A token is required for authentication");
   }
-  //try {
-    const decoded = await jwt.verify(token, process.env.TOKEN_KEY);
-    console.log(token, 'token');
-    console.log(decoded, 'decoded user');
-    const user = await User.find({_id : decoded.user_id})
-    req.user = decoded;
-    console.log('Hello', req.user)
-  //} catch (err) {
-  //  console.log(err)
-  //  return res.status(401).send("Invalid Token");
-  //}
+  try {
+const decoded = await jwt.verify(token, process.env.TOKEN_KEY);
+console.log(token, 'token');
+console.log(decoded, 'decoded user');
+const user = await User.find({_id : decoded.user_id})
+req.user = decoded;
+console.log('Hello', req.user)
+  } catch (err) {
+    console.log(err)
+    return res.status(401).send("Invalid Token");
+  }
   return next();
 };
 
