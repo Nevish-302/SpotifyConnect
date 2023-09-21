@@ -14,7 +14,7 @@ const ChatSchema = new Schema({
     type : Array,
     members : {
         message : {type : String},
-        time : {type : Date},
+        time : {type : Date, default : Date.now},
         sentBy : {type : Number}
     }
 }
